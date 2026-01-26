@@ -1,4 +1,4 @@
-# Python Modules — Milestone 2 🐍
+# 🐍 Python Modules — Milestone 2 
 
 This repository contains my **Python modules for Milestone 2** of the **42 School
 Common Core**.

@@ -3,6 +3,7 @@ class GardenManager:
     def __init__(self, owner: str):
         self.owner = owner
         self.plants = []
+        self.stats = GardenManager.GardenStats(self)
 
     def add_plant(self, plant) -> None:
         """Adds a plant on the list"""
@@ -22,6 +23,10 @@ class GardenManager:
     def validate_height(height: int) -> bool:
         """Validate grow input - Returns false if it's a negative number"""
         return height >= 0
+
+    class GardenStats:
+        def __init__(self, manager):
+            self.manager = manager
 
 
 class Plant:
@@ -49,7 +54,7 @@ class FloweringPlant(Plant):
         self.is_blooming = True
 
     def info_line(self) -> str:
-        """If else print"""
+        """Print decision maker"""
         if self.is_blooming:
             return f"- {self.name}: {self.height}cm, {self.color} flowers (blooming)"
         return f"- {self.name}: {self.height}cm, {self.color} flowers"
@@ -64,8 +69,9 @@ class PrizeFlower(FloweringPlant):
     def __init__(self, name: str, height: int, color: str, points: int):
         super().__init__(name, height, color)
         self.points = points
-        
+
     def get_info(self) -> None:
         """Print info"""
         print(f"{self.info_line()}, Prize points: {self.points}")
+
 

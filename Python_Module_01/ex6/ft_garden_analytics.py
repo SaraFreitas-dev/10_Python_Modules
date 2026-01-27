@@ -34,7 +34,7 @@ class Plant:
         self.height += amount
 
     def get_basic_info(self) -> str:
-        return print(f"- {self.name}: {self.height}cm")
+        return (f"- {self.name}: {self.height}cm")
 
 
 class FloweringPlant(Plant):
@@ -48,10 +48,24 @@ class FloweringPlant(Plant):
         """Make the plant bloom"""
         self.is_blooming = True
 
+    def info_line(self) -> str:
+        """If else print"""
+        if self.is_blooming:
+            return f"- {self.name}: {self.height}cm, {self.color} flowers (blooming)"
+        return f"- {self.name}: {self.height}cm, {self.color} flowers"
+
+    def get_info(self) -> None:
+        """Call print function"""
+        print(self.info_line())
+
+
+class PrizeFlower(FloweringPlant):
+    """Flowers that give prize points"""
+    def __init__(self, name: str, height: int, color: str, points: int):
+        super().__init__(name, height, color)
+        self.points = points
+        
     def get_info(self) -> None:
         """Print info"""
-        if self.is_blooming:
-            print(f"- {self.name}: {self.height}cm, "
-                  f"{self.color} flowers (blooming)")
-        else:
-            print(f"{self.get_basic_info()} flowers")
+        print(f"{self.info_line()}, Prize points: {self.points}")
+

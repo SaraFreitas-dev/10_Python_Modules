@@ -6,6 +6,7 @@ class Plant:
         self.age = age
 
     def get_basic_info(self) -> str:
+        """Print Basics"""
         return (f"{self.name} ({self.kind}): "
                 f"{self.height}cm, {self.age} days")
 
@@ -43,7 +44,7 @@ class Tree(Plant):
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: int, age: int,
-                 harvest_season: str, nutritional_value):
+                 harvest_season: str, nutritional_value: str):
         super().__init__(name, height, age)
         """Initialize a Plant Subclass"""
         self.harvest_season = harvest_season
@@ -59,6 +60,7 @@ class Vegetable(Plant):
 
 
 def ft_plant_types() -> None:
+    """Main Function"""
     garden = [
         Flower("Rose", 25, 30, "red"),
         Flower("Tulip", 20, 15, "yellow"),

@@ -45,7 +45,7 @@ class PrizeFlower(FloweringPlant):
 class GardenManager:
     """Manager class that represents a garden"""
     total_managed = 0
-    
+
     def __init__(self, owner: str):
         self.owner = owner
         self.plants = []

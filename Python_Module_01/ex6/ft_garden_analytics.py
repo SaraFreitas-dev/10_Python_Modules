@@ -45,6 +45,7 @@ class PrizeFlower(FloweringPlant):
 class GardenManager:
     """Manager class that represents a garden"""
     total_managed = 0
+    
     def __init__(self, owner: str):
         self.owner = owner
         self.plants = []
@@ -132,6 +133,7 @@ class GardenManager:
 
 
 def ft_ft_garden_analytics() -> None:
+    """Main function, add gardens and info, print output"""
     gardens = GardenManager.create_garden_network(["Alice", "Bob"])
     alice = gardens[0]
     bob = gardens[1]
@@ -161,4 +163,3 @@ def ft_ft_garden_analytics() -> None:
 
 if __name__ == "__main__":
     ft_ft_garden_analytics()
-

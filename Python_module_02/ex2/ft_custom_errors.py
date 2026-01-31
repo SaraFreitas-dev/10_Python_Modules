@@ -2,9 +2,11 @@ class GardenError(Exception):
     """Base exception for garden-related errors"""
     pass
 
+
 class PlantError(GardenError):
     """Raised when a plant-related error occurs"""
     pass
+
 
 class WaterError(GardenError):
     """Raised when a watering-related error occurs"""
@@ -20,7 +22,7 @@ def plant_error(plant_name: str, health: int) -> None:
 def water_error(water_amount: int) -> None:
     """Raises water error exception message"""
     if water_amount < 5:
-        raise WaterError(f"Not enough water in the tank!")
+        raise WaterError("Not enough water in the tank!")
 
 
 def test_errors() -> None:
@@ -28,7 +30,7 @@ def test_errors() -> None:
 
     print("\nTesting PlantError...")
     try:
-        plant_error("Tomato", 1)
+        plant_error("tomato", 1)
     except PlantError as e:
         print(f"Caught PlantError: {e}")
 
@@ -37,12 +39,12 @@ def test_errors() -> None:
         water_error(2)
     except WaterError as e:
         print(f"Caught WaterError: {e}")
+
     print("\nTesting catching all garden errors...")
     try:
         plant_error("Tomato", 1)
     except GardenError as e:
         print(f"Caught a garden error: {e}")
-
     try:
         water_error(2)
     except GardenError as e:

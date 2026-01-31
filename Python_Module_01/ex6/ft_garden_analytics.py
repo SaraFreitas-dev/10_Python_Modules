@@ -72,6 +72,7 @@ class GardenManager:
         return gardens
 
     def print_report(self) -> None:
+        """Print the report"""
         print()
         print(f"=== {self.owner}'s Garden Report ===")
         print('Plants in garden:')

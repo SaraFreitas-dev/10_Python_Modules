@@ -26,6 +26,7 @@ def water_error(water_amount: int) -> None:
 
 
 def test_errors() -> None:
+    """Tests on different error types"""
     print("=== Custom Garden Errors Demo ===")
 
     print("\nTesting PlantError...")

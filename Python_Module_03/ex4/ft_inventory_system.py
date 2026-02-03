@@ -23,7 +23,7 @@ def ft_current_inventory(inventory_dct: dict) -> None:
         if total_units > 0:
             percentage = (v / total_units) * 100
         else:
-            percentage = v * 100
+            percentage = 0.0
         print(f"{k}: {v} units ({percentage:.1f}%)")
 
 

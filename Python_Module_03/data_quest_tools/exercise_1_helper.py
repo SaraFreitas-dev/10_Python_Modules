@@ -3,7 +3,7 @@
 Exercise 1 Helper - Score Analytics with Elegant Data Generation
 ===============================================================
 
-This helper provides elegant utilities for generating and 
+This helper provides elegant utilities for generating and
 analyzing player scores
 in the Data Quest gaming environment. It demonstrates clean Python patterns
 that learners can study and emulate.

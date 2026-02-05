@@ -61,8 +61,8 @@ def combined_analysis(game_data: list):
         total_players = len(game_data)
         total_uniq_ach = len({ach for player in game_data
                              for ach in player["achievements"]})
-        average_score = sum(player["score"] 
-                            for player in game_data) / len(game_data)    
+        average_score = sum(player["score"]
+                            for player in game_data) / len(game_data)
         print(f"Total players: {total_players}")
         print(f"Total unique achievements: {total_uniq_ach}")
         print(f"Average score: {average_score:.1f}")

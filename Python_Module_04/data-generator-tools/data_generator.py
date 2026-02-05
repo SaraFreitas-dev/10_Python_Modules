@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """
 Cyber Archives Training Data Generator
 

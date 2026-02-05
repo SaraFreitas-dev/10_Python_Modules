@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "version": "2.1.0",
+    "generated": "2025-09-27T14:21:10.362502",
+    "generator": "ArchiveDataGenerator"
+  },
+  "file_types": [
+    "ancient_fragment",
+    "classified_data",
+    "standard_archive"
+  ],
+  "test_scenarios": [
+    {
+      "name": "basic_recovery",
+      "files": [
+        "ancient_fragment.txt"
+      ],
+      "description": "Basic file reading operations"
+    },
+    {
+      "name": "secure_access",
+      "files": [
+        "classified_data.txt"
+      ],
+      "description": "Secure file handling with context managers"
+    },
+    {
+      "name": "crisis_response",
+      "files": [
+        "standard_archive.txt",
+        "corrupted_archive.txt"
+      ],
+      "description": "Error handling and exception management"
+    }
+  ],
+  "templates": {
+    "ancient_fragment": {
+      "type": "historical_data",
+      "has_content": true
+    },
+    "classified_data": {
+      "type": "security_data",
+      "has_content": true
+    },
+    "security_protocols": {
+      "type": "protocol_data",
+      "has_content": true
+    },
+    "standard_archive": {
+      "type": "standard_data",
+      "has_content": true
+    },
+    "corrupted_archive": {
+      "type": "error_simulation",
+      "has_content": true
+    }
+  }
+}

@@ -1,5 +1,5 @@
 def ft_vault_security() -> None:
-    """"""
+    """Demonstrate secure vault access with safe read and write operations."""
     print("=== CYBER ARCHIVES - VAULT SECURITY SYSTEM ===")
     try:
         print("Initiating secure vault access...\n"

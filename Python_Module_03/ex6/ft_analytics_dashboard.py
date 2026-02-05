@@ -81,6 +81,7 @@ def combined_analysis(game_data: list):
     except Exception:
         print("Error while generating the Combined Analysis")
 
+
 def ft_analytics_dashboard():
     """Main function to call on the others using the below data"""
     game_data = [

@@ -1,8 +1,8 @@
 import sys
 
 
-def ft_stream_management():
-    """Streams"""
+def ft_stream_management() -> None:
+    """Demonstrate stdin, stdout and stderr streams."""
     print("=== CYBER ARCHIVES - COMMUNICATION SYSTEM ===")
     arch_id = input("Input Stream active. Enter archivist ID: ")
     status = input("Input Stream active. Enter status report: ")

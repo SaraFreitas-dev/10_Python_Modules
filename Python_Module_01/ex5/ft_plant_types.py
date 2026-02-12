@@ -1,22 +1,21 @@
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
-        """Initialize a Plant instance."""
+    """Initialize a Plant instance."""
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         self.height = height
         self.age = age
 
     def get_basic_info(self) -> str:
         """Print Basics"""
-        return (f"{self.name} ({self.kind}): "
+        return (f"{self.name} ({type(self).__name__}): "
                 f"{self.height}cm, {self.age} days")
 
 
 class Flower(Plant):
-    def __init__(self, name: str, height: int, age: int, color: str):
+    """Initialize a Plant Subclass"""
+    def __init__(self, name: str, height: int, age: int, color: str) -> None:
         super().__init__(name, height, age)
-        """Initialize a Plant Subclass"""
         self.color = color
-        self.kind = "Flower"
 
     def bloom(self) -> None:
         print(f'{self.name} is blooming beautifully!\n')
@@ -27,13 +26,14 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
+    """Initialize a Plant Subclass"""
+    def __init__(self, name: str, height: int, age: int,
+                 trunk_diameter: int) -> None:
         super().__init__(name, height, age)
-        """Initialize a Plant Subclass"""
         self.trunk_diameter = trunk_diameter
-        self.kind = "Tree"
 
     def produce_shade(self) -> None:
+        """Produce shade - print name and size"""
         print(f'{self.name} provides {int(3.14 * self.trunk_diameter ** 2)} '
               f'square meters of shade\n')
 
@@ -43,15 +43,15 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
+    """Initialize a Plant Subclass"""
     def __init__(self, name: str, height: int, age: int,
-                 harvest_season: str, nutritional_value: str):
+                 harvest_season: str, nutritional_value: str) -> None:
         super().__init__(name, height, age)
-        """Initialize a Plant Subclass"""
         self.harvest_season = harvest_season
         self.nutritional_value = nutritional_value
-        self.kind = "Vegetable"
 
     def nut_value(self) -> None:
+        """Get nutricional value"""
         print(f"{self.name} is rich in {self.nutritional_value}\n")
 
     def get_info(self) -> None:

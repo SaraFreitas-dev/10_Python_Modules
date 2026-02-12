@@ -18,7 +18,7 @@ class Plant:
         self.age_days += 1
 
 
-def ft_garden_data() -> None:
+def ft_plant_growth() -> None:
     """Simulate one week of plant growth."""
     curr_day = 1
     plants = [
@@ -50,4 +50,4 @@ def ft_garden_data() -> None:
 
 
 if __name__ == "__main__":
-    ft_garden_data()
+    ft_plant_growth()

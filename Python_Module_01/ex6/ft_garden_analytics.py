@@ -1,20 +1,22 @@
 class Plant:
     """Class to perform actions on the garden"""
-    def __init__(self, name: str, height: int):
+    def __init__(self, name: str, height: int) -> None:
         self.name = name
         self.height = height
         self.initial_height = height
 
     def grow(self, amount: int) -> None:
+        """Grow plant"""
         self.height += amount
 
     def info_line(self) -> str:
+        """Print info"""
         return (f"- {self.name}: {self.height}cm")
 
 
 class FloweringPlant(Plant):
     """Plant that can bloom"""
-    def __init__(self, name: str, height: int, color: str):
+    def __init__(self, name: str, height: int, color: str) -> None:
         super().__init__(name, height)
         self.color = color
         self.is_blooming = False
@@ -33,7 +35,8 @@ class FloweringPlant(Plant):
 
 class PrizeFlower(FloweringPlant):
     """Flowers that give prize points"""
-    def __init__(self, name: str, height: int, color: str, points: int):
+    def __init__(self, name: str, height: int,
+                 color: str, points: int) -> None:
         super().__init__(name, height, color)
         self.points = points
 
@@ -46,16 +49,15 @@ class GardenManager:
     """Manager class that represents a garden"""
     total_managed = 0
 
-    def __init__(self, owner: str):
+    def __init__(self, owner: str) -> None:
         self.owner = owner
         self.plants = []
         self.stats = GardenManager.GardenStats(self)
         GardenManager.total_managed += 1
 
-    def add_plant(self, plant) -> None:
+    def add_plant(self, plant: Plant) -> None:
         """Adds a plant on the list"""
         self.plants.append(plant)
-        print(f"Added {plant.name} to {self.owner}'s garden")
 
     def grow_all(self) -> None:
         """Grows each plant on the list"""
@@ -64,7 +66,7 @@ class GardenManager:
             print(f"{plant.name} grew 1cm")
 
     @classmethod
-    def create_garden_network(cls, owners: list[str]) -> list:
+    def create_garden_network(cls, owners: list[str]) -> list["GardenManager"]:
         """Creates and returns a list of gardens (network)"""
         gardens = []
         for owner in owners:
@@ -78,7 +80,7 @@ class GardenManager:
         print('Plants in garden:')
         for plant in self.plants:
             print(plant.info_line())
-        print(f"Plants added: {self.stats.plants_added()}, "
+        print(f"\nPlants added: {self.stats.plants_added()}, "
               f"Total growth: {self.stats.total_growth()}cm")
         regular, flowering, prize = self.stats.type_counts()
         print(f"Plant types: {regular} regular, {flowering} flowering, "
@@ -90,7 +92,8 @@ class GardenManager:
         return height >= 0
 
     class GardenStats:
-        def __init__(self, manager: "GardenManager"):
+        """Get stats from garden"""
+        def __init__(self, manager: "GardenManager") -> None:
             self.manager = manager
 
         def total_growth(self) -> int:
@@ -133,7 +136,7 @@ class GardenManager:
             return (score)
 
 
-def ft_ft_garden_analytics() -> None:
+def ft_garden_analytics() -> None:
     """Main function, add gardens and info, print output"""
     gardens = GardenManager.create_garden_network(["Alice", "Bob"])
     alice = gardens[0]
@@ -147,9 +150,12 @@ def ft_ft_garden_analytics() -> None:
     print("=== Garden Management System Demo ===")
     print()
     alice.add_plant(oak)
+    print("Added Oak Tree to Alice's garden")
     alice.add_plant(rose)
+    print("Added Rose to Alice's garden")
     alice.add_plant(sunflower)
-    print()
+    print("Added Sunflower to Alice's garden\n")
+
     print(f"{alice.owner} is helping all plants grow...")
     alice.grow_all()
     alice.print_report()
@@ -163,4 +169,4 @@ def ft_ft_garden_analytics() -> None:
 
 
 if __name__ == "__main__":
-    ft_ft_garden_analytics()
+    ft_garden_analytics()

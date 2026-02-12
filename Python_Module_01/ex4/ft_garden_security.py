@@ -6,15 +6,15 @@ class SecurePlant:
         self.__age = 0
         print(f"Plant created: {self.name}")
 
-    def get_height(self):
+    def get_height(self) -> int:
         """Returns plant height"""
         return self.__height
 
-    def get_age(self):
+    def get_age(self) -> int:
         """Returns plant age"""
         return self.__age
 
-    def set_height(self, height):
+    def set_height(self, height: int) -> None:
         """Sets plant height"""
         if height < 0:
             print(f'Invalid operation attempted: height {height}cm [REJECTED]')
@@ -23,7 +23,7 @@ class SecurePlant:
             self.__height = height
             print(f'Height updated: {height}cm [OK]')
 
-    def set_age(self, age):
+    def set_age(self, age: int) -> None:
         """Sets plant age"""
         if age < 0:
             print(f'Invalid operation attempted: age {age} days [REJECTED]')
@@ -32,14 +32,14 @@ class SecurePlant:
             self.__age = age
             print(f'Age updated: {age} days [OK]')
 
-    def get_info(self):
+    def get_info(self) -> None:
         """Print plant info"""
         print()
         print(f"Current plant: {self.name} "
               f"({self.__height}cm, {self.__age} days)")
 
 
-def ft_plant_factory() -> None:
+def ft_garden_security() -> None:
     """main function"""
     print('=== Garden Security System ===')
     plant = SecurePlant("Rose")
@@ -51,4 +51,4 @@ def ft_plant_factory() -> None:
 
 
 if __name__ == "__main__":
-    ft_plant_factory()
+    ft_garden_security()

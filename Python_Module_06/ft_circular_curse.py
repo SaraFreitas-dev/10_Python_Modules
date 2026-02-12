@@ -13,16 +13,16 @@ def ft_circular_curse() -> None:
           f"{validate_ingredients("dragon scales")}\n")
 
     print("Testing spell recording with validation:")
-    print("record_spell(\"Fireball\", \"fire air\"):" +
-          record_spell("Fireball", "fire air"))
-    print("record_spell(\"Dark Magic\", \"shadow\"):" +
-          record_spell("Dark Magic", "shadow"))
+    print("record_spell(\"Fireball\", \"fire air\"):"
+          f" {record_spell("Fireball", "fire air")}")
+    print("record_spell(\"Dark Magic\", \"shadow\"):"
+          f" {record_spell("Dark Magic", "shadow")}")
 
     print("\nTesting late import technique:")
-    print("record_spell(\"Lightning\", \"air\"):" +
-          record_spell("Lightning", "air"))
+    print("record_spell(\"Lightning\", \"air\"):"
+          f" {record_spell("Lightning", "air")}")
 
-    print("Circular dependency curse avoided "
+    print("\nCircular dependency curse avoided "
           "using late imports!\n"
           "All spells processed safely!")
 

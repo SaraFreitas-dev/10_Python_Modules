@@ -1,4 +1,4 @@
-def water_plant(plant_list: list) -> None:
+def water_plants(plant_list: list) -> None:
     """Check for errors"""
     print("Opening watering system")
     try:
@@ -21,10 +21,10 @@ def test_watering_system() -> None:
                None]
     print("=== Garden Watering System ===\n")
     print("Testing normal watering...")
-    water_plant(ok_list)
+    water_plants(ok_list)
     print("Watering completed successfully!\n")
     print("Testing with error...")
-    water_plant(ko_list)
+    water_plants(ko_list)
     print("\nCleanup always happens, even with errors!")
 
 

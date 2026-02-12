@@ -5,7 +5,7 @@ def garden_operations(test_str: str) -> None:
     elif (test_str == "ZeroDivisionError"):
         10/0
     elif (test_str == "FileNotFoundError"):
-        open("ghost_file.txt")
+        open("missing.txt")
     elif (test_str == "KeyError"):
         my_garden = {}
         my_garden["missing_plant"]

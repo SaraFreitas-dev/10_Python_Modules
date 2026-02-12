@@ -82,7 +82,7 @@ class GardenManager:
         print("System recovered and continuing...")
 
 
-def test_garden_system() -> None:
+def test_garden_management() -> None:
     """Function to perform tests"""
     print("=== Garden Management System ===")
     my_garden = GardenManager()
@@ -100,4 +100,4 @@ def test_garden_system() -> None:
 
 
 if __name__ == "__main__":
-    test_garden_system()
+    test_garden_management()

@@ -8,7 +8,7 @@ test cards for your abstract classes and interfaces.
 
 Usage:
     from tools.card_generator import CardGenerator
-    
+
     generator = CardGenerator()
     creature = generator.get_creature("Fire Dragon")
     spell = generator.get_spell("Lightning Bolt")
@@ -21,11 +21,11 @@ import random
 class CardGenerator:
     """
     Generates sample card data for DataDeck testing.
-    
+
     This class provides methods to retrieve predefined card data
     that can be used to test your abstract card implementations.
     """
-    
+
     def __init__(self) -> None:
         """Initialize the card generator with predefined card data."""
         self._creatures = [
@@ -38,7 +38,7 @@ class CardGenerator:
             {"name": "Healing Angel", "cost": 4, "rarity": "Rare", "attack": 2, "health": 6},
             {"name": "Forest Sprite", "cost": 1, "rarity": "Common", "attack": 1, "health": 1},
         ]
-        
+
         self._spells = [
             {"name": "Lightning Bolt", "cost": 3, "rarity": "Common", "effect_type": "damage"},
             {"name": "Healing Potion", "cost": 2, "rarity": "Common", "effect_type": "heal"},
@@ -49,7 +49,7 @@ class CardGenerator:
             {"name": "Divine Light", "cost": 5, "rarity": "Rare", "effect_type": "heal"},
             {"name": "Magic Missile", "cost": 1, "rarity": "Common", "effect_type": "damage"},
         ]
-        
+
         self._artifacts = [
             {"name": "Mana Crystal", "cost": 2, "rarity": "Common", "durability": 5, "effect": "Permanent: +1 mana per turn"},
             {"name": "Sword of Power", "cost": 3, "rarity": "Uncommon", "durability": 3, "effect": "Permanent: +2 attack to equipped creature"},
@@ -60,14 +60,14 @@ class CardGenerator:
             {"name": "Cloak of Shadows", "cost": 3, "rarity": "Uncommon", "durability": 3, "effect": "Permanent: Creatures have stealth"},
             {"name": "Staff of Elements", "cost": 6, "rarity": "Legendary", "durability": 7, "effect": "Permanent: +1 spell damage"},
         ]
-    
+
     def get_creature(self, name: str) -> Optional[Dict[str, Any]]:
         """
         Get creature card data by name.
-        
+
         Args:
             name: The name of the creature card
-            
+
         Returns:
             Dictionary containing creature data, or None if not found
         """
@@ -75,14 +75,14 @@ class CardGenerator:
             if creature["name"] == name:
                 return creature.copy()
         return None
-    
+
     def get_spell(self, name: str) -> Optional[Dict[str, Any]]:
         """
         Get spell card data by name.
-        
+
         Args:
             name: The name of the spell card
-            
+
         Returns:
             Dictionary containing spell data, or None if not found
         """
@@ -90,14 +90,14 @@ class CardGenerator:
             if spell["name"] == name:
                 return spell.copy()
         return None
-    
+
     def get_artifact(self, name: str) -> Optional[Dict[str, Any]]:
         """
         Get artifact card data by name.
-        
+
         Args:
             name: The name of the artifact card
-            
+
         Returns:
             Dictionary containing artifact data, or None if not found
         """
@@ -105,43 +105,43 @@ class CardGenerator:
             if artifact["name"] == name:
                 return artifact.copy()
         return None
-    
+
     def get_random_creature(self) -> Dict[str, Any]:
         """
         Get a random creature card.
-        
+
         Returns:
             Dictionary containing random creature data
         """
         return random.choice(self._creatures).copy()
-    
+
     def get_random_spell(self) -> Dict[str, Any]:
         """
         Get a random spell card.
-        
+
         Returns:
             Dictionary containing random spell data
         """
         return random.choice(self._spells).copy()
-    
+
     def get_random_artifact(self) -> Dict[str, Any]:
         """
         Get a random artifact card.
-        
+
         Returns:
             Dictionary containing random artifact data
         """
         return random.choice(self._artifacts).copy()
-    
+
     def get_all_creatures(self) -> List[Dict[str, Any]]:
         """
         Get all available creature cards.
-        
+
         Returns:
             List of dictionaries containing all creature data
         """
         return [creature.copy() for creature in self._creatures]
-    
+
     def get_all_spells(self) -> List[Dict[str, Any]]:
         """
         Get all available spell cards.
@@ -279,7 +279,7 @@ def main() -> None:
     for card_type, cards in low_cost_cards.items():
         if cards:
             print(f"{card_type.capitalize()}: {len(cards)} cards")
-    
+
     print(f"\nRandom Deck (5 cards): {[card['name'] for card in generator.generate_random_deck(5)]}")
 
 

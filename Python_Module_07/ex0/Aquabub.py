@@ -2,7 +2,7 @@ from ex0.Creature import Creature
 
 
 class Aquabub(Creature):
-    """Creates a aquabub creature (first level)"""
+    """Creates an Aquabub creature (first level)"""
     def __init__(self) -> None:
         super().__init__("Aquabub", "Water")
 

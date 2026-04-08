@@ -2,7 +2,7 @@ from ex0.Creature import Creature
 
 
 class Flameling(Creature):
-    """Creates a flameling creature (first level)"""
+    """Creates a Flameling creature (first level)"""
     def __init__(self) -> None:
         super().__init__("Flameling", "Fire")
 

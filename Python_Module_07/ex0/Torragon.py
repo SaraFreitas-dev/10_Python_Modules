@@ -2,7 +2,7 @@ from ex0.Creature import Creature
 
 
 class Torragon(Creature):
-    """Creates a aquabub creature (evolved)"""
+    """Creates a Torragon creature (evolved)"""
     def __init__(self) -> None:
         super().__init__("Torragon", "Water")
 

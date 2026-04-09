@@ -78,13 +78,20 @@ This exercise introduces the **Abstract Factory design pattern** to create famil
 
 ## 📁 Directory Structure
 
-- `ex1/` - Capability system package (composition with abstract classes)
-- `ex1/capabilities.py` - Defines capability interfaces (`HealCapability`, `TransformCapability`)
-- `ex1/healing_creatures.py` - Contains healing family creatures (`Sproutling`, `Bloomelle`)
-- `ex1/transform_creatures.py` - Contains transform family creatures (`Shiftling`, `Morphagon`)
-- `ex1/factories.py` - Implements capability-based factories (`HealingCreatureFactory`, `TransformCreatureFactory`)
-- `ex1/__init__.py` - Exposes only factory classes
-- `capacitor.py` - Test script demonstrating creature capabilities
+```bash
+ex1/
+├── HealCapability.py            # Heal capability interface
+├── TransformCapability.py       # Transform capability interface
+├── Sproutling.py                # Base healing creature
+├── Bloomelle.py                 # Evolved healing creature
+├── Shiftling.py                 # Base transform creature
+├── Morphagon.py                 # Evolved transform creature
+├── HealingCreatureFactory.py    # Factory for healing creatures
+├── TransformCreatureFactory.py  # Factory for transform creatures
+└── __init__.py                  # Exposes factory classes
+
+capacitor.py                     # Test script demonstrating capabilities
+```
 
 ---
 
@@ -172,12 +179,15 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 
 ## 📁 Directory Structure
 
-- `ex2/` - Strategy system package (behavior selection at runtime)
-- `ex2/strategy.py` - Defines the abstract `BattleStrategy` interface
-- `ex2/concrete_strategies.py` - Implements concrete strategies (`NormalStrategy`, `AggressiveStrategy`, `DefensiveStrategy`)
-- `ex2/exceptions.py` - Defines custom exceptions for invalid strategy usage
-- `ex2/__init__.py` - Exposes strategy classes
-- `tournament.py` - Test script simulating battles using different strategies
+```bash
+ex2/
+├── strategy.py               # Abstract BattleStrategy interface
+├── concrete_strategies.py    # Normal, Aggressive, Defensive strategies
+├── exceptions.py             # Custom strategy exceptions
+└── __init__.py               # Exposes strategy classes
+
+tournament.py                 # Test script simulating battles with strategies
+```
 
 ---
 

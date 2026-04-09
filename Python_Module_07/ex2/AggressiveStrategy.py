@@ -10,9 +10,11 @@ class AggressiveStrategy(BattleStrategy):
         """act method will be called by the tournament script to
         transform or return an error if its not a transform creature"""
         if self.is_valid(creature):
-            return creature.attack() + "\n" + creature.transform()
+            return (creature.transform() + "\n"
+                    + creature.attack() + "\n"
+                    + creature.revert())
         else:
-            raise ValueError(f"Invalid Creature '{creature.type}'"
+            raise ValueError(f"Invalid Creature '{creature.name}'"
                              " for this defensive strategy")
 
     def is_valid(self, creature: Creature) -> bool:

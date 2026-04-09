@@ -11,7 +11,7 @@ class NormalStrategy(BattleStrategy):
         if self.is_valid(creature):
             return creature.attack()
         else:
-            raise ValueError(f"Invalid Creature '{creature.type}'"
+            raise ValueError(f"Invalid Creature '{creature.name}'"
                              " for this defensive strategy")
 
     def is_valid(self, creature: Creature) -> bool:

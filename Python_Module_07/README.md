@@ -27,13 +27,17 @@ The goal is to build a flexible and extensible architecture, promoting clean des
 
 ```bash
 ex0/
-├── creature.py           # Abstract Creature base class
-├── flame_creatures.py    # Flameling & Pyrodon (Flame family)
-├── aqua_creatures.py     # Aquabub & Torragon (Aqua family)
-├── factories.py          # CreatureFactory, FlameFactory, AquaFactory
-└── __init__.py           # Exposes factory classes
+├── Creature.py          # Abstract Creature base class
+├── CreatureFactory.py   # Abstract factory interface
+├── FlameFactory.py      # Factory for Flame creatures
+├── AquaFactory.py       # Factory for Aqua creatures
+├── Flameling.py         # Base Flame creature
+├── Pyrodon.py           # Evolved Flame creature
+├── Aquabub.py           # Base Aqua creature
+├── Torragon.py          # Evolved Aqua creature
+└── __init__.py          # Exposes factory classes
 
-battle.py                 # Test script for creature creation & battles
+battle.py                # Test script for creature creation & battles
 ```
 
 ---

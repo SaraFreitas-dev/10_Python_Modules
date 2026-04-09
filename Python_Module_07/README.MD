@@ -1,13 +1,26 @@
 # Module 07 - DataDeck
 
+## Overview
+
+This project is part of the 42 curriculum and focuses on advanced object-oriented programming concepts in Python.
+
+The program simulates the creation and interaction of different creature types, allowing them to perform actions such as attacking, healing, transforming, and adapting their behavior during battles.
+
+The goal is to build a flexible and extensible architecture, promoting clean design, separation of concerns, and dynamic behavior management.
+
 ## Table of Contents
 
-- [Exercise 0 - Creature Factory](#exercise-0---creature-factory)
-- [Exercise 1 - Capabilities](#exercise-1---capabilities)
-- [Exercise 2 - Abstract Strategy](#exercise-2---abstract-strategy)
+- 🏭 [Exercise 0 - Creature Factory](#exercise-0---creature-factory)  
+  *Creation of creature families using the Abstract Factory pattern*
+
+- ⚙️ [Exercise 1 - Capabilities](#exercise-1---capabilities)  
+  *Extending creatures with reusable behaviors through abstract capabilities*
+
+- 🧠 [Exercise 2 - Abstract Strategy](#exercise-2---abstract-strategy)  
+  *Dynamic battle behavior using the Strategy pattern*
 
 
-# Exercise 0 - Creature Factory
+# 🏭 Exercise 0 - Creature Factory
 
 ## Directory Structure
 
@@ -57,7 +70,7 @@ This exercise introduces the **Abstract Factory design pattern** to create famil
 - Only factory classes are exposed to ensure proper **encapsulation**
 - This design allows easy extension with new creature families without modifying existing code
 
-# Exercise 1 - Capabilities
+# ⚙️ Exercise 1 - Capabilities
 
 ## Directory Structure
 
@@ -151,7 +164,7 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 - Behavior is extended without modifying the base class
 - Output must strictly match the subject requirements
 
-# Exercise 2 - Abstract Strategy
+# 🧠 Exercise 2 - Abstract Strategy
 
 ## Directory Structure
 

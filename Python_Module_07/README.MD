@@ -71,7 +71,7 @@ This exercise introduces the **Abstract Factory design pattern** to create famil
 - Only factory classes are exposed to ensure proper **encapsulation**
 - This design allows easy extension with new creature families without modifying existing code
 
-# ⚙️ Exercise 1 - Capabilities
+# Exercise 1 - Capabilities
 
 ## 📁 Directory Structure
 
@@ -165,7 +165,7 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 - Behavior is extended without modifying the base class
 - Output must strictly match the subject requirements
 
-# 🧠 Exercise 2 - Abstract Strategy
+# Exercise 2 - Abstract Strategy
 
 ## 📁 Directory Structure
 

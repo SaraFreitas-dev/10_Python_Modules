@@ -10,17 +10,18 @@ The goal is to build a flexible and extensible architecture, promoting clean des
 
 ## 📚 Table of Contents
 
-
 - 🏭 [Exercise 0 - Creature Factory](#exercise-0---creature-factory)  
   *Creation of creature families using the Abstract Factory pattern*
+
 - ⚙️ [Exercise 1 - Capabilities](#exercise-1---capabilities)  
   *Extending creatures with reusable behaviors through abstract capabilities*
-- 🧠 [Exercise 2 - Abstract Strategy](#exercise-2---abstract-strategy)
+
+- 🧠 [Exercise 2 - Abstract Strategy](#exercise-2---abstract-strategy)  
   *Dynamic battle behavior using the Strategy pattern*
 
 ---
 
-# 🏭 Exercise 0 - Creature Factory
+# Exercise 0 - Creature Factory
 
 ## 📁 Directory Structure
 

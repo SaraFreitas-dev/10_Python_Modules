@@ -187,12 +187,13 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 
 ```bash
 ex2/
-├── strategy.py               # Abstract BattleStrategy interface
-├── concrete_strategies.py    # Normal, Aggressive, Defensive strategies
-├── exceptions.py             # Custom strategy exceptions
-└── __init__.py               # Exposes strategy classes
+├── BattleStrategy.py       # Abstract BattleStrategy interface
+├── NormalStrategy.py       # Strategy for basic attack behavior
+├── DefensiveStrategy.py    # Strategy for attack + heal behavior
+├── AggressiveStrategy.py   # Strategy for transform + attack + revert behavior
+└── __init__.py             # Exposes strategy classes
 
-tournament.py                 # Test script simulating battles with strategies
+tournament.py               # Test script simulating battles with strategies
 ```
 
 ---

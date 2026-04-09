@@ -1,6 +1,6 @@
-# Module 07 - DataDeck
+# 🎴 Module 07 - DataDeck
 
-## Overview
+## 📖 Overview
 
 This project is part of the 42 curriculum and focuses on advanced object-oriented programming concepts in Python.
 
@@ -8,7 +8,7 @@ The program simulates the creation and interaction of different creature types, 
 
 The goal is to build a flexible and extensible architecture, promoting clean design, separation of concerns, and dynamic behavior management.
 
-## Table of Contents
+## 📚 Table of Contents
 
 - 🏭 [Exercise 0 - Creature Factory](#exercise-0---creature-factory)  
   *Creation of creature families using the Abstract Factory pattern*
@@ -22,7 +22,7 @@ The goal is to build a flexible and extensible architecture, promoting clean des
 
 # 🏭 Exercise 0 - Creature Factory
 
-## Directory Structure
+## 📁 Directory Structure
 
 - `ex0/` - Creature system package (abstract factory pattern)
 - `ex0/creature.py` - Defines the abstract `Creature` base class
@@ -72,7 +72,7 @@ This exercise introduces the **Abstract Factory design pattern** to create famil
 
 # ⚙️ Exercise 1 - Capabilities
 
-## Directory Structure
+## 📁 Directory Structure
 
 - `ex1/` - Capability system package (composition with abstract classes)
 - `ex1/capabilities.py` - Defines capability interfaces (`HealCapability`, `TransformCapability`)
@@ -166,7 +166,7 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 
 # 🧠 Exercise 2 - Abstract Strategy
 
-## Directory Structure
+## 📁 Directory Structure
 
 - `ex2/` - Strategy system package (behavior selection at runtime)
 - `ex2/strategy.py` - Defines the abstract `BattleStrategy` interface

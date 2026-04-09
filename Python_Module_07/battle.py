@@ -13,8 +13,8 @@ def ex0_test() -> None:
         print(flameling.attack())
         print(pyrodon.describe())
         print(pyrodon.attack())
-    except ValueError:
-        print("Error while testing the flame factory")
+    except Exception as e:
+        print(f"Error {e}")
 
     try:
         """AQUA CREATURES"""
@@ -26,8 +26,8 @@ def ex0_test() -> None:
         print(aquabub.attack())
         print(torragon.describe())
         print(torragon.attack())
-    except ValueError:
-        print("Error while testing the aqua factory")
+    except Exception as e:
+        print(f"Error {e}")
 
     try:
         """TESTING BATTLE BETWEEN CREATURES"""
@@ -36,8 +36,8 @@ def ex0_test() -> None:
               f'{aquabub.describe()}')
         print("fight!")
         print(f'{flameling.attack()} \n{aquabub.describe()}')
-    except ValueError:
-        print("Error while testing a battle")
+    except Exception as e:
+        print(f"Error {e}")
 
 
 if __name__ == "__main__":

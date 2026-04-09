@@ -24,7 +24,7 @@ def ex1_test() -> None:
 
     try:
         """TRANSFORM CREATURES"""
-        print("\nTesting Creature with healing capability")
+        print("\nTesting Creature with transform capability")
         transform_factory = TransformCreatureFactory()
         # BASE
         print(" base:")

@@ -25,7 +25,7 @@ The goal is to build a flexible and extensible architecture, promoting clean des
 
 ## 📁 Directory Structure
 
-~~~text
+```bash
 ex0/
 ├── creature.py           # Abstract Creature base class
 ├── flame_creatures.py    # Flameling & Pyrodon (Flame family)
@@ -34,7 +34,7 @@ ex0/
 └── __init__.py           # Exposes factory classes
 
 battle.py                 # Test script for creature creation & battles
-~~~
+```
 
 ---
 

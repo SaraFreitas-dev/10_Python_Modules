@@ -42,7 +42,7 @@ battle.py                # Test script for creature creation & battles
 
 ---
 
-## Description
+## 📌 Description
 
 This exercise introduces the **Abstract Factory design pattern** to create families of creatures.
 
@@ -99,7 +99,7 @@ capacitor.py                     # Test script demonstrating capabilities
 
 ---
 
-## Description
+## 📌 Description
 
 This exercise extends the creature system by introducing **capabilities** using abstract classes.
 
@@ -179,6 +179,8 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 - Behavior is extended without modifying the base class
 - Output must strictly match the subject requirements
 
+---
+
 # Exercise 2 - Abstract Strategy
 
 ## 📁 Directory Structure
@@ -195,7 +197,7 @@ tournament.py                 # Test script simulating battles with strategies
 
 ---
 
-## Description
+## 📌 Description
 
 This exercise introduces the **Strategy design pattern** to control how creatures behave during battles.
 

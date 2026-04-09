@@ -151,96 +151,87 @@ Instead of modifying the base `Creature`, new behaviors are added through **sepa
 - Behavior is extended without modifying the base class
 - Output must strictly match the subject requirements
 
-# Exercise 1 - Capabilities
+# Exercise 2 - Abstract Strategy
 
 ## Directory Structure
 
-- `ex1/` - Capability system package (composition with abstract classes)
-- `ex1/capabilities.py` - Defines capability interfaces (`HealCapability`, `TransformCapability`)
-- `ex1/healing_creatures.py` - Contains healing family creatures (`Sproutling`, `Bloomelle`)
-- `ex1/transform_creatures.py` - Contains transform family creatures (`Shiftling`, `Morphagon`)
-- `ex1/factories.py` - Implements capability-based factories (`HealingCreatureFactory`, `TransformCreatureFactory`)
-- `ex1/__init__.py` - Exposes only factory classes
-- `capacitor.py` - Test script demonstrating creature capabilities
+- `ex2/` - Strategy system package (behavior selection at runtime)
+- `ex2/strategy.py` - Defines the abstract `BattleStrategy` interface
+- `ex2/concrete_strategies.py` - Implements concrete strategies (`NormalStrategy`, `AggressiveStrategy`, `DefensiveStrategy`)
+- `ex2/exceptions.py` - Defines custom exceptions for invalid strategy usage
+- `ex2/__init__.py` - Exposes strategy classes
+- `tournament.py` - Test script simulating battles using different strategies
 
 ---
 
 ## Description
 
-This exercise extends the creature system by introducing **capabilities** using abstract classes.
+This exercise introduces the **Strategy design pattern** to control how creatures behave during battles.
 
-Instead of modifying the base `Creature`, new behaviors are added through **separate capability classes**, promoting flexibility and reuse.
-
-### Capabilities
-
-#### HealCapability
-- Defines the `heal()` abstract method
-- Implemented by healing creatures
-- Returns a string describing the healing action
-
-#### TransformCapability
-- Defines:
-  - `transform()`
-  - `revert()`
-- Uses an internal state to modify behavior dynamically
-- Impacts how `attack()` behaves
+Instead of hardcoding behavior inside the creatures, actions are delegated to **strategy objects**, allowing dynamic behavior selection at runtime.
 
 ---
 
-### Healing Creatures
+### BattleStrategy (Abstract Class)
 
-- `Sproutling` (base)
-  - Basic attack
-  - Heals itself for a small amount
+- Defines two methods:
+  - `is_valid(creature) -> bool`
+  - `act(creature) -> str or None`
 
-- `Bloomelle` (evolved)
-  - Stronger attack
-  - Heals itself and others for a large amount
-
----
-
-### Transform Creatures
-
-- `Shiftling` (base)
-  - Normal attack by default
-  - Can transform to enhance attack
-  - Reverts to original state
-
-- `Morphagon` (evolved)
-  - More powerful transformed attack
-  - Uses the same transform/revert cycle with stronger effects
+- `is_valid` ensures the strategy is compatible with the creature  
+- `act` defines how the creature behaves in battle
 
 ---
 
-### Factories
+### Concrete Strategies
 
-#### HealingCreatureFactory
-- Creates:
-  - `Sproutling` (base)
-  - `Bloomelle` (evolved)
-
-#### TransformCreatureFactory
-- Creates:
-  - `Shiftling` (base)
-  - `Morphagon` (evolved)
+#### NormalStrategy
+- Valid for all creatures
+- Behavior:
+  - Performs a standard `attack()`
 
 ---
 
-### capacitor.py
+#### AggressiveStrategy
+- Valid only for creatures with transform capability
+- Behavior:
+  - `transform()` → `attack()` → `revert()`
 
-- Tests healing creatures:
-  - describe → attack → heal
+---
 
-- Tests transform creatures:
-  - describe → attack → transform → attack → revert
+#### DefensiveStrategy
+- Valid only for creatures with healing capability
+- Behavior:
+  - `attack()` → `heal()`
 
-- Demonstrates dynamic behavior based on capabilities
+---
+
+### Exception Handling
+
+- If a strategy is used with an incompatible creature:
+  - `is_valid()` returns `False`
+  - Calling `act()` raises a custom exception
+
+---
+
+### tournament.py
+
+- Creates multiple creatures using factories (from ex0 and ex1)
+- Assigns a strategy to each creature
+- Simulates a tournament:
+  - Each creature fights all others
+  - Strategy determines behavior during combat
+- Handles invalid strategy-creature combinations safely
 
 ---
 
 ## Notes
 
-- Capabilities are implemented as **independent abstract classes**
-- They do **not inherit from Creature**, enabling composition
-- Behavior is extended without modifying the base class
-- Output must strictly match the subject requirements
+- The Strategy pattern allows behavior to change **without modifying creature classes**
+- Eliminates conditional logic (`if transform`, `if heal`, etc.)
+- Promotes flexibility and scalability
+- Works together with:
+  - Factory pattern (object creation)
+  - Capability pattern (behavior composition)
+
+- Output and error handling must strictly match the subject requirements

@@ -25,13 +25,16 @@ The goal is to build a flexible and extensible architecture, promoting clean des
 
 ## 📁 Directory Structure
 
-- `ex0/` - Creature system package (abstract factory pattern)
-- `ex0/creature.py` - Defines the abstract `Creature` base class
-- `ex0/flame_creatures.py` - Contains Flame family creatures (`Flameling`, `Pyrodon`)
-- `ex0/aqua_creatures.py` - Contains Aqua family creatures (`Aquabub`, `Torragon`)
-- `ex0/factories.py` - Implements `CreatureFactory` and concrete factories (`FlameFactory`, `AquaFactory`)
-- `ex0/__init__.py` - Exposes only factory classes (encapsulation)
-- `battle.py` - Test script to validate factories and simulate battles
+~~~text
+ex0/
+├── creature.py           # Abstract Creature base class
+├── flame_creatures.py    # Flameling & Pyrodon (Flame family)
+├── aqua_creatures.py     # Aquabub & Torragon (Aqua family)
+├── factories.py          # CreatureFactory, FlameFactory, AquaFactory
+└── __init__.py           # Exposes factory classes
+
+battle.py                 # Test script for creature creation & battles
+~~~
 
 ---
 

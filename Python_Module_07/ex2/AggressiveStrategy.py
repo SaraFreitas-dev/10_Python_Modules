@@ -1,6 +1,7 @@
 from ex2.BattleStrategy import BattleStrategy
 from ex1.TransformCapability import TransformCapability
 from ex0.Creature import Creature
+from typing import cast
 
 
 class AggressiveStrategy(BattleStrategy):
@@ -10,9 +11,10 @@ class AggressiveStrategy(BattleStrategy):
         """act method will be called by the tournament script to
         transform or return an error if its not a transform creature"""
         if self.is_valid(creature):
-            return (creature.transform() + "\n"
+            transformer = cast(TransformCapability, creature)
+            return (transformer.transform() + "\n"
                     + creature.attack() + "\n"
-                    + creature.revert())
+                    + transformer.revert())
         else:
             raise ValueError(f"Invalid Creature '{creature.name}'"
                              " for this defensive strategy")

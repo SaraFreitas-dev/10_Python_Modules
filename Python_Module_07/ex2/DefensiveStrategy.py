@@ -1,6 +1,7 @@
 from ex2.BattleStrategy import BattleStrategy
 from ex1.HealCapability import HealCapability
 from ex0.Creature import Creature
+from typing import cast
 
 
 class DefensiveStrategy(BattleStrategy):
@@ -10,7 +11,8 @@ class DefensiveStrategy(BattleStrategy):
         """act method will be called by the tournament script to
         heal or return an error if its not a heal creature"""
         if self.is_valid(creature):
-            return creature.attack() + "\n" + creature.heal()
+            healer = cast(HealCapability, creature)
+            return creature.attack() + "\n" + healer.heal()
         else:
             raise ValueError(f"Invalid Creature '{creature.name}'"
                              " for this defensive strategy")

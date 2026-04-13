@@ -1,4 +1,7 @@
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
+from ex1.TransformCapability import TransformCapability
+from ex1.HealCapability import HealCapability
+from typing import cast
 
 
 def ex1_test() -> None:
@@ -12,13 +15,16 @@ def ex1_test() -> None:
         sproutling = heal_factory.create_base()
         print(sproutling.describe())
         print(sproutling.attack())
-        print(sproutling.heal())
+        # cast to prevent mypy warnings
+        healer = cast(HealCapability, sproutling)
+        print(healer.heal())
         # EVOLVED
         print(" evolved:")
         bloomelle = heal_factory.create_evolved()
         print(bloomelle.describe())
         print(bloomelle.attack())
-        print(bloomelle.heal())
+        healer = cast(HealCapability, bloomelle)
+        print(healer.heal())
     except Exception as e:
         print(f"Error {e}")
 
@@ -31,17 +37,19 @@ def ex1_test() -> None:
         shiftling = transform_factory.create_base()
         print(shiftling.describe())
         print(shiftling.attack())
-        print(shiftling.transform())
+        transformer = cast(TransformCapability, shiftling)
+        print(transformer.transform())
         print(shiftling.attack())
-        print(shiftling.revert())
+        print(transformer.revert())
         # EVOLVED
         print(" evolved:")
         morphagon = transform_factory.create_evolved()
         print(morphagon.describe())
         print(morphagon.attack())
-        print(morphagon.transform())
+        transformer = cast(TransformCapability, morphagon)
+        print(transformer.transform())
         print(morphagon.attack())
-        print(morphagon.revert())
+        print(transformer.revert())
     except Exception as e:
         print(f"Error {e}")
 

@@ -3,6 +3,7 @@ import sys
 # pip install python-dotenv
 from dotenv import load_dotenv
 
+
 def load_config() -> dict[str]:
     try:
         load_dotenv()
@@ -12,6 +13,9 @@ def load_config() -> dict[str]:
         log_level = os.getenv('LOG_LEVEL')
         zion_endpoint = os.getenv('ZION_ENDPOINT')
 
+        if not database_url or not api_key or not zion_endpoint:
+            return {}
+
         return {
             "mode": matrix_mode,
             "db": database_url,
@@ -19,10 +23,11 @@ def load_config() -> dict[str]:
             "log": log_level,
             "zion": zion_endpoint
         }
+
     except Exception as e:
         print(f"[LOAD_CONFIG() ERROR]: {e}")
 
-def security_check() -> None:
+def security_check(variables: dict[str]) -> None:
     pass
 
 

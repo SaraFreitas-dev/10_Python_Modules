@@ -1,0 +1,5 @@
+# Install all with: pip install -r requirements.txt
+pandas==2.3.3
+numpy==1.26.4
+matplotlib==3.10.8
+requests==2.25.1

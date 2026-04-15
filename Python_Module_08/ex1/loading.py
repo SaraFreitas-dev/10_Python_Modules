@@ -6,6 +6,7 @@ def check_deps() -> tuple[dict[str, Any], bool]:
     """
     Check for the presence of each dependency (pandas, numpy, etc)
     If there is any missing dependency, it show instructions on how to add them
+    pip install pandas numpy requests matplotlib
     """
     try:
         dependencies = [('pandas', 'Data manipulation'),
@@ -24,13 +25,17 @@ def check_deps() -> tuple[dict[str, Any], bool]:
                 version = module.__version__
                 print(f"[OK] {dep} ({version}) - {dep_type} ready")
                 modules[dep] = module
-            except ImportError:
+            except Exception:
                 all_ok = False
                 print(f"[MISSING] {dep} - {dep_type} not found\n"
                       f"    -> Install with pip: pip install {dep}\n"
                       f"    -> Or with poetry: poetry add {dep}")
         if not all_ok:
-            print("\nERROR: Missing required dependencies. Aborting.\n")
+            print("\nInstall all dependencies with the pip command: "
+                  "pip install -r requirements.txt\n"
+                  "Or with the poetry command: "
+                  "poetry install -> poetry run python loading.py\n"
+                  "\nERROR: Missing required dependencies. Aborting.\n")
             return ({}, all_ok)
         return (modules, all_ok)
     except Exception as e:
@@ -48,33 +53,55 @@ def analyse_matrix(modules: dict[str, Any]) -> None:
         numpy = modules["numpy"]
         requests = modules["requests"]
         matplotlib = modules["matplotlib"]
-        data = numpy.random(1000)
-        df = pandas.DataFrame()
-        print("Analyzing Matrix data..."
+        # Generate random signal values
+        signal = numpy.random.rand(1000)
+        # Create a counter / time
+        time = numpy.arange(1000)
+        # Create a table using pandas
+        data_f = pandas.DataFrame({"time": time, "signal": signal})
+
+        print("Analyzing Matrix data...\n"
               "Processing 1000 data points...\n"
               "Generating visualization...\n\n")
+        # Generate the png image
+        generate_visualization(data_f)
 
     except Exception as e:
         print(f"Error on analyse_matrix(): {e}")
 
 
-def generate_visualization() -> None:
+def generate_visualization(data_f: Any) -> None:
     """
     Generating visualization - matrix_analysis.png
-    Creates a graph with matplotlib and stores the image
+    Creates a graph with pandas DataFrame and stores the image
     """
-    print("Analysis complete!\n"
-          "Results saved to: matrix_analysis.png")
+    try:
+        import matplotlib.pyplot as plt
+
+        file_name = "matrix_analysis.png"
+        plt.figure(figsize=(10, 5))
+        plt.plot(data_f["time"], data_f["signal"])
+        plt.title("Matrix Signal Analysis")
+        plt.xlabel("Time")
+        plt.ylabel("Signal")
+        plt.grid(True)
+        plt.savefig("matrix_analysis.png")
+        plt.close()
+        print("Analysis complete!\n"
+            f"Results saved to: {file_name}")
+    except Exception as e:
+        print(f"Error on generate_visualization(): {e}")
 
 
 def loading() -> None:
-    """Print the program text result"""
+    """
+    Print the program text result.
+    To install"""
     print("\nLOADING STATUS: Loading programs...\n"
           "Checking dependencies:\n")
     modules, all_ok = check_deps()
     if all_ok:
         analyse_matrix(modules)
-        generate_visualization()
 
 
 if __name__ == "__main__":

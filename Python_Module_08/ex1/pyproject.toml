@@ -1,0 +1,22 @@
+# curl -sSL https://install.python-poetry.org | python3 -
+#poetry install
+# poetry run python loading.py
+
+# Poetry creates its own isolated environment automatically, 
+# unlike pip which requires manual virtual environment setup.
+
+# rm -rf ~/.local/share/pypoetry
+# rm -rf ~/.local/bin/poetry
+
+[tool.poetry]
+name = "loading"
+version = "0.1.0"
+description = "Matrix data analysis tool"
+authors = ["Sarfreit"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "2.3.3"
+numpy = "1.26.4"
+matplotlib = "3.10.8"
+requests = "2.25.1"

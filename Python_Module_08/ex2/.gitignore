@@ -1,1 +1,2 @@
-# .env - For example purposes, this was uploaded on github
+.env
+.mypy_cache

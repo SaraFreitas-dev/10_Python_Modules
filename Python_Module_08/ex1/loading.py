@@ -6,7 +6,6 @@ def check_deps() -> tuple[dict[str, Any], bool]:
     """
     Check for the presence of each dependency (pandas, numpy, etc)
     If there is any missing dependency, it show instructions on how to add them
-    pip install pandas numpy requests matplotlib
     """
     try:
         dependencies = [('pandas', 'Data manipulation'),
@@ -17,15 +16,18 @@ def check_deps() -> tuple[dict[str, Any], bool]:
         all_ok = True
         for dep, dep_type in dependencies:
             try:
-                """
-                If the installation is done, import the module
-                Transform the dep str into a module and get its version
-                """
+                # If the installation is done, import the module
+                # Transform the dep str into a module and get its version
+
                 module = importlib.import_module(dep)
                 version = module.__version__
                 print(f"[OK] {dep} ({version}) - {dep_type} ready")
                 modules[dep] = module
+
             except Exception:
+                if dep == "requests":
+                    print(f"[OPTIONAL] {dep} not found")
+                    continue
                 all_ok = False
                 print(f"[MISSING] {dep} - {dep_type} not found\n"
                       f"    -> Install with pip: pip install {dep}\n"
@@ -51,16 +53,14 @@ def analyse_matrix(modules: dict[str, Any]) -> None:
     try:
         pandas = modules["pandas"]
         numpy = modules["numpy"]
-        requests = modules["requests"]
-        matplotlib = modules["matplotlib"]
         # Generate random signal values
         signal = numpy.random.rand(1000)
-        # Create a counter / time
+        # Create a counter
         time = numpy.arange(1000)
         # Create a table using pandas
         data_f = pandas.DataFrame({"time": time, "signal": signal})
 
-        print("Analyzing Matrix data...\n"
+        print("\nAnalyzing Matrix data...\n"
               "Processing 1000 data points...\n"
               "Generating visualization...\n\n")
         # Generate the png image
@@ -88,7 +88,7 @@ def generate_visualization(data_f: Any) -> None:
         plt.savefig(file_name)
         plt.close()
         print("Analysis complete!\n"
-            f"Results saved to: {file_name}")
+              f"Results saved to: {file_name}")
     except Exception as e:
         print(f"Error on generate_visualization(): {e}")
 

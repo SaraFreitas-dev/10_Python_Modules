@@ -23,7 +23,7 @@ def construct() -> None:
     v_path = os.environ.get('VIRTUAL_ENV')
 
     if v_path:
-        """Inside the Construct"""
+        # Inside the Construct
         print("\nMATRIX STATUS: Welcome to the construct\n\n"
               f"Current Python: {sys.executable}\n"
               f"Virtual Environment: {os.path.basename(v_path)}\n"
@@ -31,12 +31,13 @@ def construct() -> None:
               "SUCCESS: You're in an isolated environment!\n"
               "Safe to install packages without affecting\n"
               "the global system.\n\n"
-              "Package installation path: \n"
-              f"{site.getsitepackages()[0] if site.getsitepackages()
-                 else 'N/A'}")
-        """ Leave the matrix with the deactivate command """
+              "Package installation path: \n")
+        if site.getsitepackages():
+            print(f"{site.getsitepackages()[0]}")
+        else:
+            print('N/A')
     else:
-        """"Outside the Matrix / venv"""
+        # Outside the Matrix / venv
         print("\nMATRIX STATUS: You're still plugged in\n")
         print(f"Current Python: {sys.executable}.{sys.version_info.minor}")
         print("Virtual Environment: None detected\n\n"

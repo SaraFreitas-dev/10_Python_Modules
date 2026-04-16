@@ -5,9 +5,6 @@
 # Poetry creates its own isolated environment automatically, 
 # unlike pip which requires manual virtual environment setup.
 
-# rm -rf ~/.local/share/pypoetry
-# rm -rf ~/.local/bin/poetry
-
 [tool.poetry]
 name = "loading"
 version = "0.1.0"

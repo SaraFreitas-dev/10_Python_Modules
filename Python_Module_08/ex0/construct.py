@@ -8,7 +8,7 @@ def construct() -> None:
     • Detects whether it is running inside a virtual environment
     • Displays information about the current Python environment
     • Provides instructions for creating and activating a
-    virtual environment if none isdetected
+    virtual environment if none is detected
     • Shows the difference between global and virtual
     environment package locations
     -> works both inside and outside virtual environments,
@@ -31,7 +31,9 @@ def construct() -> None:
               "SUCCESS: You're in an isolated environment!\n"
               "Safe to install packages without affecting\n"
               "the global system.\n\n"
-              f"Package installation path: \n{site.getsitepackages()[0]}")
+              "Package installation path: \n"
+              f"{site.getsitepackages()[0] if site.getsitepackages()
+                 else 'N/A'}")
         """ Leave the matrix with the deactivate command """
     else:
         """"Outside the Matrix / venv"""

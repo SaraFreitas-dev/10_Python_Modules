@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/sarfreit/Desktop/10_Python_Modules/Python_Module_08/ex0/matrix_env
+set -gx VIRTUAL_ENV /mnt/c/Users/sfont/Desktop/42_school/Common_core/Milestone_2/10_Python_Modules/Python_Module_08/ex0/matrix_env
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

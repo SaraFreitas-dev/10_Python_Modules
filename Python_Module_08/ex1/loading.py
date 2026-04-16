@@ -85,7 +85,7 @@ def generate_visualization(data_f: Any) -> None:
         plt.xlabel("Time")
         plt.ylabel("Signal")
         plt.grid(True)
-        plt.savefig("matrix_analysis.png")
+        plt.savefig(file_name)
         plt.close()
         print("Analysis complete!\n"
             f"Results saved to: {file_name}")
@@ -96,7 +96,7 @@ def generate_visualization(data_f: Any) -> None:
 def loading() -> None:
     """
     Print the program text result.
-    To install"""
+    """
     print("\nLOADING STATUS: Loading programs...\n"
           "Checking dependencies:\n")
     modules, all_ok = check_deps()

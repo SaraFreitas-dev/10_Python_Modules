@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, ValidationError     # type: ignore
 # source venv/bin/activate
 # pip install pydantic
 # deactivate (to leave venv)
-from typing import Optional
+from typing import Optional, Union
 from datetime import datetime
 
 
@@ -27,55 +27,61 @@ class SpaceStation_Model(BaseModel):
     notes: Optional[str] = Field(default=None, max_length=200)
 
 
-def report(station: SpaceStation_Model) -> None:
-    """Prints the report on the terminal from a certain SpaceStation model"""
+def create_station(data: dict) -> Union[SpaceStation_Model, str]:
+    """"
+    Check if data is valid and return a SpaceStation_Model to use in report
+    Or the error message if its invalid
+    """
     try:
-        print("Space Station Data Validation\n"
-              "========================================")
-        print("Valid station created:\n"
-              f"ID: {station.station_id}\n"
-              f"Name: {station.name}\n"
-              f"Crew: {station.crew_size} people\n"
-              f"Power: {station.power_level}%\n"
-              f"Oxygen: {station.oxygen_level}%")
-        status = "Operational" if station.is_operational else "Not operational"
-        print(f"Status: {status}\n")
-
+        return SpaceStation_Model(**data)
     except ValidationError as e:
         print("========================================\n"
               "Expected validation error:")
         for err in e.errors():
             print(err["msg"])
+
+
+def report(station: SpaceStation_Model) -> None:
+    """
+    Prints the report on the terminal from a certain SpaceStation model
+    """
+    print("Space Station Data Validation\n"
+          "========================================")
+    print("Valid station created:\n"
+          f"ID: {station.station_id}\n"
+          f"Name: {station.name}\n"
+          f"Crew: {station.crew_size} people\n"
+          f"Power: {station.power_level}%\n"
+          f"Oxygen: {station.oxygen_level}%")
+    status = "Operational" if station.is_operational else "Not operational"
+    print(f"Status: {status}\n")
 
 
 if __name__ == "__main__":
-    try:
-        station_data = {
-            "station_id": "ISS001",
-            "name": "International Space Station",
-            "crew_size": 6,
-            "power_level": 85.5,
-            "last_maintenance": datetime(2024, 1, 1, 10, 0, 0),
-            "oxygen_level": 92.3,
-            "is_operational": True
-        }
-        int_station = SpaceStation_Model(**station_data)
+    # OK STATION
+    station_data = {
+        "station_id": "ISS001",
+        "name": "International Space Station",
+        "crew_size": 6,
+        "power_level": 85.5,
+        "last_maintenance": datetime(2024, 1, 1, 10, 0, 0),
+        "oxygen_level": 92.3,
+        "is_operational": True
+    }
+    int_station = create_station(station_data)
+    if isinstance(int_station, SpaceStation_Model):
         report(int_station)
 
-        failed_station = {
-            "station_id": "ISS001",
-            "name": "International Space Station",
-            "crew_size": 25,
-            "power_level": 85.5,
-            "last_maintenance": datetime(2024, 1, 1, 10, 0, 0),
-            "oxygen_level": 92.3,
-            "is_operational": True
-        }
-        f_station = SpaceStation_Model(**failed_station)
+    # KO STATION
+    failed_station = {
+        "station_id": "ISS001",
+        "name": "International Space Station",
+        "crew_size": 25,
+        "power_level": 85.5,
+        "last_maintenance": datetime(2024, 1, 1, 10, 0, 0),
+        "oxygen_level": 92.3,
+        "is_operational": True
+    }
+    f_station = create_station(failed_station)
+    if isinstance(f_station, SpaceStation_Model):
         report(f_station)
-
-    except ValidationError as e:
-        print("========================================\n"
-              "Expected validation error:")
-        for err in e.errors():
-            print(err["msg"])

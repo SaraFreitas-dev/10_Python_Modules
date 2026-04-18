@@ -22,13 +22,15 @@ basic but complete **data pipeline system**.
 
 ## 📚 Table of Contents
 
-- 🧱 [Exercise 0 - Entering the Matrix](#exercise-0---entering-the-matrix)  
+## 📚 Table of Contents
+
+- 🧱 [Exercise 0 - Entering the Matrix](#exercise-0--entering-the-matrix)  
   *Understanding virtual environments and Python runtime isolation*
 
-- 📦 [Exercise 1 - Loading Programs](#exercise-1---loading-programs)  
+- 📦 [Exercise 1 - Loading Programs](#exercise-1--loading-programs)  
   *Managing dependencies and building a basic data analysis pipeline*
 
-- 🔐 [Exercise 2 - Accessing the Mainframe](#exercise-2---accessing-the-mainframe)  
+- 🔐 [Exercise 2 - Accessing the Mainframe](#exercise-2--accessing-the-mainframe)  
   *Secure configuration using environment variables and .env files*
 
 ---
@@ -84,8 +86,8 @@ Focuses on dependency management and data processing.
 - Generates a dataset and saves a graph (`matrix_analysis.png`)
 
 **Concepts:** package management, dynamic imports, data pipelines  
-👉 Dependency checking implemented via `importlib` :contentReference[oaicite:1]{index=1}  
-👉 Requirements defined in `requirements.txt` :contentReference[oaicite:2]{index=2}
+👉 Dependency checking implemented via `importlib` 
+👉 Requirements defined in `requirements.txt`
 
 ---
 
@@ -104,7 +106,7 @@ Introduces environment configuration and security.
 - Ensures secrets are not hardcoded
 
 **Concepts:** environment variables, secure config, system design  
-👉 Configuration loading handled safely with fallback and validation :contentReference[oaicite:3]{index=3}
+👉 Configuration loading handled safely with fallback and validation
 
 ---
 

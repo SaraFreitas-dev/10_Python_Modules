@@ -6,6 +6,9 @@ from datetime import datetime
 
 
 class ContactType(str, Enum):
+    """
+    Types of contact
+    """
     RADIO = "radio"
     VISUAL = "visual"
     PHYSICAL = "physical"
@@ -52,8 +55,8 @@ class AlienContact(BaseModel):
         return self
 
 
-def create_contact(data: dict) -> Union[AlienContact, str]:
-    """"
+def create_contact(data: dict) -> Union[AlienContact, None]:
+    """
     Check if data is valid and return a AlienContact model to use in report
     Or the error message if its invalid
     """

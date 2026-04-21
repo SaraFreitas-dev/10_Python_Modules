@@ -6,7 +6,7 @@ def load_config() -> dict[str, str]:
     """Returns a dict with the variables from .env"""
     try:
         # To import .env variables
-        from dotenv import load_dotenv
+        from dotenv import load_dotenv   # type: ignore
         load_dotenv()
     except ModuleNotFoundError:
         print("\nERROR: Missing dependency: python-dotenv\n"

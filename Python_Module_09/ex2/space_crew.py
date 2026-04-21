@@ -76,8 +76,8 @@ class SpaceMission(BaseModel):
         return self
 
 
-def create_contact(data: dict) -> Union[SpaceMission, str]:
-    """"
+def create_mission(data: dict) -> Union[SpaceMission, None]:
+    """
     Check if data is valid and return a SpaceMission model to use in report
     Or the error message if its invalid
     """
@@ -152,7 +152,7 @@ if __name__ == '__main__':
         ]
     }
 
-    ok_mission = create_contact(mission_data)
+    ok_mission = create_mission(mission_data)
     if isinstance(ok_mission, SpaceMission):
         report(ok_mission)
 
@@ -186,6 +186,6 @@ if __name__ == '__main__':
         ]
     }
 
-    ko_mission = create_contact(failed_mission)
+    ko_mission = create_mission(failed_mission)
     if isinstance(ko_mission, SpaceMission):
         report(ko_mission)

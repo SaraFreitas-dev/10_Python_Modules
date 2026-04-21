@@ -27,8 +27,8 @@ class SpaceStation_Model(BaseModel):
     notes: Optional[str] = Field(default=None, max_length=200)
 
 
-def create_station(data: dict) -> Union[SpaceStation_Model, str]:
-    """"
+def create_station(data: dict) -> Union[SpaceStation_Model, None]:
+    """
     Check if data is valid and return a SpaceStation_Model to use in report
     Or the error message if its invalid
     """
@@ -45,16 +45,19 @@ def report(station: SpaceStation_Model) -> None:
     """
     Prints the report on the terminal from a certain SpaceStation model
     """
-    print("Space Station Data Validation\n"
-          "========================================")
-    print("Valid station created:\n"
-          f"ID: {station.station_id}\n"
-          f"Name: {station.name}\n"
-          f"Crew: {station.crew_size} people\n"
-          f"Power: {station.power_level}%\n"
-          f"Oxygen: {station.oxygen_level}%")
-    status = "Operational" if station.is_operational else "Not operational"
-    print(f"Status: {status}\n")
+    try:
+        print("Space Station Data Validation\n"
+              "========================================")
+        print("Valid station created:\n"
+              f"ID: {station.station_id}\n"
+              f"Name: {station.name}\n"
+              f"Crew: {station.crew_size} people\n"
+              f"Power: {station.power_level}%\n"
+              f"Oxygen: {station.oxygen_level}%")
+        status = "Operational" if station.is_operational else "Not operational"
+        print(f"Status: {status}\n")
+    except Exception as e:
+        print(f"ERROR ON REPORT(): {e}")
 
 
 if __name__ == "__main__":

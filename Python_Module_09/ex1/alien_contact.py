@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field, ValidationError  # type: ignore
 from pydantic import model_validator  # type: ignore
-from typing import Optional, Union
+from typing import Optional, Union, Any
 from enum import Enum
 from datetime import datetime
 
@@ -55,7 +55,7 @@ class AlienContact(BaseModel):
         return self
 
 
-def create_contact(data: dict) -> Union[AlienContact, None]:
+def create_contact(data: dict[str, Any]) -> Union[AlienContact, None]:
     """
     Check if data is valid and return a AlienContact model to use in report
     Or the error message if its invalid

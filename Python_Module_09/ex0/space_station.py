@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field, ValidationError     # type: ignore
 # source venv/bin/activate
 # pip install pydantic
 # deactivate (to leave venv)
-from typing import Optional, Union
+from typing import Optional, Union, Any
 from datetime import datetime
 
 
@@ -27,7 +27,7 @@ class SpaceStation_Model(BaseModel):
     notes: Optional[str] = Field(default=None, max_length=200)
 
 
-def create_station(data: dict) -> Union[SpaceStation_Model, None]:
+def create_station(data: dict[str, Any]) -> Union[SpaceStation_Model, None]:
     """
     Check if data is valid and return a SpaceStation_Model to use in report
     Or the error message if its invalid

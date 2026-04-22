@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field, ValidationError  # type: ignore
 from pydantic import model_validator  # type: ignore
-from typing import Union
+from typing import Union, Any
 from enum import Enum
 from datetime import datetime
 
@@ -76,7 +76,7 @@ class SpaceMission(BaseModel):
         return self
 
 
-def create_mission(data: dict) -> Union[SpaceMission, None]:
+def create_mission(data: dict[str, Any]) -> Union[SpaceMission, None]:
     """
     Check if data is valid and return a SpaceMission model to use in report
     Or the error message if its invalid

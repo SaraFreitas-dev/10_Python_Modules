@@ -28,6 +28,24 @@ Each module:
 
 ---
 
+## 📚 Documentation
+
+The repository also contains a `docs/` folder with additional beginner-friendly notes
+and documentation about important Python concepts frequently used in 42 projects and
+modern Python development.
+
+Topics include:
+- Python typing
+- OOP concepts
+- Error handling
+- Pydantic
+- JSON and data validation
+- Virtual environments
+- Git workflows
+- `mypy` and `flake8`
+
+---
+
 ## 🎯 Objective
 
 The objective of these modules is to:

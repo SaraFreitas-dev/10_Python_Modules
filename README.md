@@ -1,3 +1,7 @@
+<p align="center">
+<a href="https://github.com/SaraFreitas-dev/42_School_Badges"><img src="https://raw.githubusercontent.com/SaraFreitas-dev/42_School_Badges/main/Badges/Milestone_2/svg/python_modules.svg" width="300" alt="python_modules"/></a>
+</p>
+
 # 🐍 Python Modules — Milestone 2 
 
 This repository contains my **Python modules for Milestone 2** of the **42 School
